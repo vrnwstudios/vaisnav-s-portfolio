@@ -1,0 +1,147 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Me</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      
+      color: white;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .contact-card {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    }
+
+    .card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+    }
+
+    .card ul li {
+      margin-bottom: 1rem;
+    }
+
+    .card ul li a {
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .card ul li a:hover {
+      color: #60a5fa;
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1f2937;
+      color: white;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #374151;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 1.5rem 2rem;
+      }
+      .card h1 {
+        font-size: 1.8rem;
+      }
+      .card ul {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="./assets/video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Contact Card -->
+  <div class="contact-card">
+    <div class="card">
+      <h1>Contact Me</h1>
+      <ul>
+        <li> Email: <a href="vaisnavrn183@gmail.com">vaisnavrn183@gmail.com</a></li>
+        <li> GitHub: <a href="https://github.com/vrnwstudios" target="_blank">https://github.com/vrnwstudios</a></li>
+        <li> LinkedIn: <a href="https://linkedin.com/in/vaisnavrn183" target="_blank">https://linkedin.com/in/vaisnavrn183</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-button">← Back</a>
+
+</body>
+</html>

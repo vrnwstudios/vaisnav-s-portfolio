@@ -1,0 +1,29 @@
+#swipe-down {
+  opacity: 0;
+  color: white; /* explicitly set */
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  /* add a fallback: if animation fails, set opacity 1 after delay */
+  animation-fill-mode: forwards;
+}
+
+/* fallback for older browsers */
+#swipe-down.visible {
+  opacity: 1;
+}
+
+#swipe-down:hover {
+  color: #3b82f6; /* Tailwind blue-500 */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

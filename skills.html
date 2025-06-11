@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Skills</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111827;
+      color: white;
+      overflow-x: hidden; /* prevent horizontal scroll */
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+    nav a {
+      color: white;
+      margin: 0 1.5rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -10;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -5;
+    }
+
+    /* Slide out left animation */
+    .slide-out-left {
+      animation: slideOutLeft 0.3s forwards;
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page-wrapper">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="./assets/skills.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Skills Section -->
+    <main class="pt-32 px-6 pb-20 flex flex-col items-center text-center">
+      <h1 class="text-4xl font-bold mb-8">My Skills</h1>
+
+      <ul class="max-w-xl w-full text-left space-y-4 text-lg bg-black bg-opacity-50 p-6 rounded-xl">
+        <li><span class="font-semibold text-blue-400">Programming Languages:</span> C, Python, JavaScript</li>
+        <li><span class="font-semibold text-blue-400">Web Development:</span> HTML, CSS, React.js, Tailwind CSS</li>
+        <li><span class="font-semibold text-blue-400">Mobile App Development:</span> Flutter</li>
+        <li><span class="font-semibold text-blue-400">Machine Learning:</span> Model training using MobileNet</li>
+        <li><span class="font-semibold text-blue-400">Software Concepts:</span> Object-Oriented Programming (OOP), Basic Data Structures</li>
+        <li><span class="font-semibold text-blue-400">Cybersecurity:</span> Foundations of Cybersecurity</li>
+        <li><span class="font-semibold text-blue-400">Hardware Knowledge:</span> Hands-on experience with Arduino</li>
+      </ul>
+    </main>
+  </div>
+
+  <script>
+    const pageWrapper = document.getElementById('page-wrapper');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        // Prevent animating when clicking the same page link (optional)
+        if (link.href === window.location.href) return;
+
+        pageWrapper.classList.add('slide-out-left');
+
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300); // matches animation duration
+      });
+    });
+  </script>
+
+</body>
+</html>
